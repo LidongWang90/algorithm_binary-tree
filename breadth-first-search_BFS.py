@@ -21,8 +21,8 @@ class Solution:
             for i in range(len(q)):
                 node = q.popleft()
                 if node.left:
-                    q.node.left
+                    q.append(node.left)
                 if node.right:
-                    q.node.right
+                    q.append(node.right)
             counter += 1
         return counter
