@@ -21,6 +21,28 @@ class Solution:
         return dfs(root)
 
 
+# Given the roots of two binary trees p and q, write a function to check if they are the same or not.
+# Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        def dfs(node1, node2):
+            if not node1 and not node2:
+                return True
+            elif not node1 or not node2:
+                return False
+            elif node1.val != node2.val:
+                return False
+            return dfs(node1.left, node2.left) and dfs(node1.right, node2.right)
+
+        return dfs(p, q)
+
+
 # Consider all the leaves of a binary tree,
 # from left to right order, the values of those leaves form a leaf value sequence.
 # 给一个树，返回所有的叶子（从左到右）。先用DFS recursion的办法，再用BFS+stack的办法。
